@@ -98,12 +98,12 @@ const faqs = [
   },
 ];
 
-// Clean text-only city filters (emojis removed)
+// City filters (emoji added to fulfill the City interface requirement)
 const cities = [
-  { name: "Marrakech", slug: "marrakech" },
-  { name: "Fes", slug: "fes" },
-  { name: "Agadir", slug: "agadir" },
-  { name: "Tangier", slug: "tangier" },
+  { name: "Marrakech", slug: "marrakech", emoji: "🕌" },
+  { name: "Fes", slug: "fes", emoji: "🏛️" },
+  { name: "Agadir", slug: "agadir", emoji: "🏖️" },
+  { name: "Tangier", slug: "tangier", emoji: "⚓" },
 ];
 
 export default async function DayTripsPage() {

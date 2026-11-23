@@ -31,7 +31,7 @@ function decodeHtml(html: string) {
     .replace(/&quot;/g, '"')
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
-    .replace(/&nbsp;/g, " ");
+    .replace(/ /g, " ");
 }
 
 function stripHtml(html: string) {
@@ -73,14 +73,32 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   try {
     const slugs = await getBlogPostSlugs();
     if (Array.isArray(slugs) && slugs.length > 0) {
-      return slugs.map((slug) => ({
-        slug: String(slug).trim().replace(/\/$/, ""),
-      }));
+      const formattedSlugs = slugs
+        .map((item) => {
+          const s = typeof item === "string" ? item : (item as any)?.slug || "";
+          return String(s).trim().replace(/\/$/, "");
+        })
+        .filter(Boolean);
+
+      if (formattedSlugs.length > 0) {
+        return formattedSlugs.map((slug) => ({ slug }));
+      }
+    }
+
+    // Fallback: try fetching all posts if getBlogPostSlugs returned empty
+    const allPosts = await getAllPosts();
+    if (Array.isArray(allPosts) && allPosts.length > 0) {
+      return allPosts
+        .map((p) => String(p.slug || "").trim().replace(/\/$/, ""))
+        .filter(Boolean)
+        .map((slug) => ({ slug }));
     }
   } catch (error) {
     console.error("Failed to generate static params for blog:", error);
   }
-  return [];
+
+  // Safety fallback so static export build never crashes if API is offline
+  return [{ slug: "welcome" }];
 }
 
 /* -------------------- METADATA -------------------- */
@@ -372,7 +390,6 @@ export default async function DynamicBlogPostPage({ params }: Props) {
           gap: 16px;
           text-decoration: none;
           align-items: center;
-          group;
         }
         .sb-related-img {
           width: 100px;
@@ -551,7 +568,7 @@ export default async function DynamicBlogPostPage({ params }: Props) {
             {excerpt && <p>{excerpt}</p>}
             
             <div className="sb-meta">
-              By <span>{author}</span> &nbsp;&nbsp; {formattedDate}
+              By <span>{author}</span> · {formattedDate}
             </div>
           </div>
         </div>
