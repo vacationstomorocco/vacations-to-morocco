@@ -1,0 +1,117 @@
+.page {
+  color: #1c1c1c;
+  background: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  color: #c15a3a;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  min-height: 560px;
+}
+.heroImage { position: relative; width: 100%; height: 100%; }
+.heroImage img { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+.heroPanel {
+  background: #0e2a24;
+  color: #fff;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.breadcrumb { display: flex; gap: 10px; font-size: 13px; opacity: 0.85; margin-bottom: 20px; }
+.breadcrumb a { color: #fff; text-decoration: none; transition: opacity 0.2s ease; }
+.breadcrumb a:hover { opacity: 1; text-decoration: underline; }
+.heroPanel h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin: 10px 0 20px; }
+.heroPanel h1 span { display: block; font-size: 18px; font-weight: 400; margin-top: 12px; opacity: 0.85; }
+.heroPanel p { font-size: 16px; line-height: 1.6; opacity: 0.9; margin-bottom: 10px; }
+.heroActions { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+.primaryButton {
+  background: #d17a52; color: #fff; padding: 14px 28px; border-radius: 8px;
+  font-weight: 600; text-decoration: none; display: inline-block; text-align: center;
+  transition: background-color 0.2s ease;
+}
+.primaryButton:hover { background: #bc653d; }
+.textButton { color: #fff; text-decoration: underline; padding: 14px 0; font-weight: 600; }
+.infoStrip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px; padding: 40px; background: #f7f3ee;
+}
+.infoCard span { display: block; font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+.infoCard strong { font-size: 15px; color: #222; }
+.introduction { max-width: 800px; margin: 80px auto; padding: 0 20px; text-align: center; }
+.introduction h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 20px; color: #0e2a24; }
+.introduction p { font-size: 17px; line-height: 1.7; color: #4a4a4a; }
+.sectionHeader { max-width: 800px; margin: 0 auto 50px; padding: 0 20px; text-align: center; }
+.sectionHeader h2 { font-size: clamp(26px, 4vw, 32px); color: #0e2a24; }
+.experiencesSection { background: #fff; padding: 80px 20px; }
+.experienceList {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
+}
+.experience {
+  background: #f7f3ee; padding: 40px 30px; border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.experience:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+.experience span { font-size: 32px; font-weight: 700; color: #c15a3a; }
+.experience h3 { margin: 15px 0 10px; font-size: 20px; color: #0e2a24; }
+.experience p { font-size: 14px; line-height: 1.6; color: #555; }
+.toursSection { background: #f9f6f2; padding: 80px 20px; }
+.tourGrid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px; max-width: 1200px; margin: 0 auto;
+}
+.tourCard {
+  background: #fff; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tourCard:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+.tourImage img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.tourBody { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; }
+.tourBody h3 { font-size: 20px; color: #0e2a24; line-height: 1.3; }
+.tourTitleLink { color: inherit; text-decoration: none; }
+.tourTitleLink:hover { color: #c15a3a; }
+.tourDescription { font-size: 14px; color: #555; line-height: 1.6; }
+.tourMeta { display: flex; gap: 8px; flex-wrap: wrap; font-size: 12px; color: #666; margin: 8px 0; }
+.metaItem { background: #f2ece6; padding: 6px 12px; border-radius: 20px; font-weight: 550; }
+.tourButton {
+  margin-top: auto; color: #c15a3a; font-weight: 600; text-decoration: none;
+  font-size: 15px; display: inline-block; padding-top: 10px; transition: color 0.2s ease;
+}
+.tourButton:hover { color: #923f25; }
+.empty { text-align: center; color: #666; padding: 60px 0; font-size: 16px; }
+.faqSection { padding: 80px 20px; background: #fff; }
+.faqList { max-width: 800px; margin: 0 auto; }
+.faqItem { border-bottom: 1px solid #e6e0d9; padding: 20px 0; }
+.faqSummary {
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; list-style: none; outline: none;
+}
+.faqSummary::-webkit-details-marker { display: none; }
+.faqSummary strong { font-size: 17px; color: #0e2a24; padding-right: 20px; }
+.faqIcon { font-size: 24px; color: #c15a3a; font-weight: 300; user-select: none; transition: transform 0.2s ease; }
+.faqItem[open] .faqIcon { transform: rotate(45deg); }
+.faqAnswer { margin-top: 15px; font-size: 15px; line-height: 1.6; color: #555; }
+.finalCta { background: #0e2a24; color: #fff; text-align: center; padding: 80px 20px; }
+.finalCta h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 15px; }
+.finalCta p { max-width: 600px; margin: 0 auto 30px; font-size: 16px; opacity: 0.9; line-height: 1.6; }
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .heroImage img { height: 350px; min-height: auto; }
+  .heroPanel { padding: 40px 20px; }
+}
+@media (max-width: 600px) {
+  .infoStrip { grid-template-columns: 1fr; padding: 30px 20px; }
+  .tourGrid { grid-template-columns: 1fr; }
+}
